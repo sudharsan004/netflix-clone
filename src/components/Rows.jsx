@@ -6,7 +6,9 @@ import Row from './Row'
 function Rows() {
     let allRows =[]
     for (const key in requests) {
-      allRows.push(<Row title={key} fetchURL={requests.key} />)
+        // console.log(requests[key]);
+        
+      allRows.push(<Row title={key} fetchURL={requests[key]} />)
     }
     return allRows
   }
