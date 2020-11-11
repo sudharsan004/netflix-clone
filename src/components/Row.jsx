@@ -8,9 +8,9 @@ function Row({ title, fetchURL, backDrop }) {
   const [movies, setmovies] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      console.log(fetchURL);
+      // console.log(fetchURL);
       const request = await axiosInstance.get(fetchURL)
-      console.log(request.data.results[0]);
+      // console.log(request.data.results[0]);
       setmovies(request.data.results)
     }
     fetchData()
@@ -22,16 +22,11 @@ function Row({ title, fetchURL, backDrop }) {
       <div className="row__posters">
         {
           movies.map(movie => {
-            {/* console.log(`${imageBaseUrl}${movie.poster_path}`) */ }
+            /* console.log(`${imageBaseUrl}${movie.poster_path}`) */ 
           return  movie.poster_path ? <img key={movie.id} className="row__poster" src={`${imageBaseUrl}${ movie.poster_path }`} alt={movie.name} />: null
         } )}
         
       </div>
-      <div>
-
-      </div>
-      {/* <h1>{title}</h1> */}
-      {/* posters */}
     </div>
   )
 }
