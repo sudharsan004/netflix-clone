@@ -1,0 +1,9 @@
+nav{
+    position: fixed;
+    top: 0;
+    background-color: thistle;
+}
+.nav__logo{
+ width: 80px;
+ background-color: transparent;   
+}

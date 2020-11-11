@@ -1,7 +1,7 @@
 const API_KEY ="f2498ad04781ea57eef51b9c47ed7871"
 
 const requests = {//backdrop -true/false
-	Trending: [`/discover/movie?api_key=${API_KEY}&with_original_language=ta`,true],
+	Trending: [`/discover/movie?api_key=${API_KEY}&with_original_language=ta&primary_release_year=2020`,true],
 	// fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_network=123&with_original_language=ta`,
 	// fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&with_original_language=ta`,
 	// TopRated: `/discover/movie?api_key=${API_KEY}&with_genres=28&with_original_language=ta`,
