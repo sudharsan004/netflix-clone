@@ -1,4 +1,4 @@
-.row{
+.row {
   padding: 20px;
 }
 .row__posters {
@@ -17,8 +17,16 @@
   max-height: 250px;
   margin-right: 10px;
   transition: transform 450ms;
-
 }
-.row__poster:hover{
-    transform: scale(1.08);
+.row__backdrop {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 450ms;
+}
+
+.row__poster:hover,
+.row__backdrop:hover {
+  transform: scale(1.08);
 }

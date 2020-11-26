@@ -4,7 +4,10 @@ import './Nav.css'
 function Nav() {
     return (
         <nav className="nav">
-        {/* <img className="nav__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png"/> */}
+            <img className="nav__logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png"
+                alt="Netflix-logo"
+            />
         </nav>
     )
 }
