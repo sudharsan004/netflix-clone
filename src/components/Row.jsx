@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosInstance from '../axios'
 import './Row.css'
 import Youtube from 'react-youtube'
-import MovieTrailer from 'movie-trailer'
+import movieTrailer from 'movie-trailer'
 
 
 // construct a row
@@ -22,24 +22,26 @@ function Row({ title, fetchURL, showBackDrop }) {
     fetchData()
   }, [fetchURL])
 
-  const [url, seturl] = useState('')
   // get movie trailer youtube url of a movie 
-  function handelClick(movie) {
-    MovieTrailer(movie.original_title)
-      .then(url => { seturl(url); console.log(url) }
-      )
-      .catch(eror => console.log(eror))
-    // seperate the id of the youtube url
-    settrailerId(url.slice(url.indexOf('v') + 2, -1))
-    console.log(trailerId);
+  function handleClick(movie) {
+    // console.table(movie?.title)
+    if (trailerId) {
+      settrailerId('')
+    } else {
+      movieTrailer(movie?.title || "")
+        .then(url => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          settrailerId(urlParams.get('v'));
+        }).catch((error) => console.log(error));
+    }
   }
 
-  const [isClicked, setisClicked] = useState(false)
+  // const [isClicked, setisClicked] = useState(false)
 
   // options for youtube
   const opts = {
     height: '390',
-    width: '640',
+    width: '100%',
     playerVars: {
       autoplay: 1,
     },
@@ -53,18 +55,23 @@ function Row({ title, fetchURL, showBackDrop }) {
           movies.map(movie => {
             /* console.log(`${imageBaseUrl}${movie.poster_path}`) */
             return (
-              <img
-                onClick={() => { handelClick(movie); setisClicked(prev => !prev) }}
-                key={movie.id}
-                className={`${showBackDrop ? 'row__backdrop' : 'row__poster'}`}
-                src={`${imageBaseUrl}${showBackDrop ? movie.backdrop_path : movie.poster_path}`}
-                alt={movie.name} />
+              (movie.poster_path && movie.backdrop_path) ?
+                <img
+                  // onClick={() => { handelClick(movie); setisClicked(prev => !prev) }}
+                  onClick={() => { handleClick(movie); }}
+                  key={movie.id}
+                  className={`${showBackDrop ? 'row__backdrop' : 'row__poster'}`}
+                  src={`${imageBaseUrl}${showBackDrop ? movie.backdrop_path : movie.poster_path}`}
+                  alt={movie.name} />
+                : null
             )
+
           })}
 
-      </div>
 
-      {isClicked ? <Youtube videoId={trailerId} opts={opts} /> : null}
+      </div>
+      {trailerId ? <Youtube videoId={trailerId} opts={opts} /> : null}
+
     </div>
   )
 }

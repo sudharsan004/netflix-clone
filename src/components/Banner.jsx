@@ -7,7 +7,7 @@ function Banner() {
     const imageBaseUrl = "https://image.tmdb.org/t/p/original"
     useEffect(() => {
         async function fetchBanner() {
-            const response = await axiosInstance.get(requests["Netflix Originals"][0])
+            const response = await axiosInstance.get(requests["Trending"][0])
             // console.log(response.data.results[Math.floor(Math.random() * 10)])
             const randomImage = response.data.results[Math.floor(Math.random() * response.data.results.length - 1)]
             setbannerPoster(randomImage)

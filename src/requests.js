@@ -2,7 +2,7 @@ const API_KEY = "f2498ad04781ea57eef51b9c47ed7871"
 
 const requests = {
 	//Category:['url' , showBackdrop ]
-	"Netflix Originals": [`/discover/tv?api_key=${API_KEY}&with_network=123`, false],
+	"Netflix Originals": [`/discover/movie?api_key=${API_KEY}&with_network=123`, false],
 	"Trending": [`/discover/movie?api_key=${API_KEY}&primary_release_year=2020`, true],
 	"Top Rated": [`/movie/top_rated?api_key=${API_KEY}`, true],
 	"Comedy Movies": [`/discover/movie?api_key=${API_KEY}&with_genres=35`, true],
