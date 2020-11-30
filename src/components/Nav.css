@@ -1,9 +1,22 @@
-nav{
-    position: fixed;
-    top: 0;
-    background-color: thistle;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1;
+  height: 35px;
 }
-.nav__logo{
- width: 80px;
- background-color: transparent;   
+.nav__logo {
+  width: 100px;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.nav__avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  object-fit: contain;
 }
